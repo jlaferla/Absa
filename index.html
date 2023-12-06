@@ -213,6 +213,8 @@
 
                     var exchangeRate = responseData.exchangeRate;
                     var foreignAmount = responseData.foreignAmount;
+                    var baseCurrency = responseData.baseCurrency.alphaCode;
+
 
                     var tableContent = `<table>
                                             <tr>
@@ -227,19 +229,12 @@
                                                 <td>Foreign Amount</td>
                                                 <td>${foreignAmount}</td>
                                             </tr>
+                                            <tr>
+                                                <td>Base Currency</td>
+                                                <td>${baseCurrency}</td>
+                                            </tr>
                                         </table>`;
  
-                    // Extract baseCurrency from the response
-                var baseCurrency = responseData.baseCurrency.alphaCode;
-
-                // Add Base Currency row to the table
-                tableContent += `<tr>
-                                    <td>Base Currency</td>
-                                    <td>${baseCurrency}</td>
-                                </tr>`;
-                tableContent += `</table>`;
-
-
                     // Display the table content
                     document.getElementById("responseData").innerHTML = tableContent;
 
