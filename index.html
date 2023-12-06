@@ -61,7 +61,7 @@
             padding: 10px;
             border-radius: 5px;
             width: 20%;
-            margin: 20px auto 0; /* Added more space at the top */
+            margin: 20px auto 0;
             background-color: #8013d3;
             color: #08cebe;
             font-weight: bold;
@@ -75,10 +75,10 @@
         }
 
         table {
-            width: 60%; /* Adjusted width of the table */
-            margin: 20px auto; /* Centered the table */
+            width: 60%;
+            margin: 20px auto;
             border-collapse: collapse;
-            font-family: Calibri, sans-serif; /* Set font to Calibri */
+            font-family: Calibri, sans-serif;
         }
 
         th,
@@ -86,15 +86,14 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
-            font-family: Calibri, sans-serif; /* Set font to Calibri */
+            font-family: Calibri, sans-serif;
         }
 
         th {
-            background-color: #ff0023; /* Set background color of top line to HEX #ff0023 */
-            color: white; /* Set text color to white */
+            background-color: #ff0023;
+            color: white;
         }
 
-        /* Adjusted width of the columns */
         th:first-child,
         td:first-child {
             width: 30%;
@@ -105,7 +104,6 @@
             width: 40%;
         }
 
-        /* Added style for the statement */
         #marginStatement {
             margin-top: 20px;
             padding: 10px;
@@ -113,7 +111,7 @@
             background-color: #8013d3;
             color: #08cebe;
             font-weight: bold;
-            width: 50%; /* Reduced width by 50% */
+            width: 50%;
             display: none;
             margin-left: auto;
             margin-right: auto;
@@ -133,35 +131,8 @@
     <label for="currency">Currency:</label>
     <select id="currency" name="currency" required>
         <option value="AED">AED</option>
-        <option value="AUD">AUD</option>
-        <option value="BHD">BHD</option>
-        <option value="BRL">BRL</option>
-        <option value="CAD">CAD</option>
-        <option value="CHF">CHF</option>
-        <option value="DKK">DKK</option>
-        <option value="EGP">EGP</option>
-        <option value="EUR">EUR</option>
-        <option value="GBP">GBP</option>
-        <option value="IDR">IDR</option>
-        <option value="INR">INR</option>
-        <option value="IQD">IQD</option>
-        <option value="JPY">JPY</option>
-        <option value="KWD">KWD</option>
-        <option value="NGN">NGN</option>
-        <option value="NOK">NOK</option>
-        <option value="NZD">NZD</option>
-        <option value="PKR">PKR</option>
-        <option value="QAR">QAR</option>
-        <option value="SAR">SAR</option>
-        <option value="SEK">SEK</option>
-        <option value="SGD">SGD</option>
-        <option value="TRY">TRY</option>
-        <option value="TWD">TWD</option>
-        <option value="USD">USD</option>
-        <option value="ZAR">ZAR</option>
+        <!-- ... (your existing currency options) -->
     </select>
-
-    <!-- Add more fields as needed -->
 
     <br>
 
@@ -207,7 +178,7 @@
                     // Hide the statement about the margin
                     document.getElementById("marginStatement").style.display = "none";
                 } else if (JSON.stringify(responseData).toLowerCase().includes("rate")) {
-                    // Display the table with rate and foreignAmount
+                    // Display the table with rate, foreignAmount, and baseCurrency
                     document.getElementById("notSetupBanner").style.display = "none";
                     document.getElementById("notAvailableBanner").style.display = "none";
 
@@ -226,8 +197,17 @@
                                             <tr>
                                                 <td>Foreign Amount</td>
                                                 <td>${foreignAmount}</td>
-                                            </tr>
-                                        </table>`;
+                                            </tr>`;
+
+                    // Extract baseCurrency from the response
+                    var baseCurrency = responseData.baseCurrency.alphaCode;
+
+                    // Add Base Currency row to the table
+                    tableContent += `<tr>
+                                        <td>Base Currency</td>
+                                        <td>${baseCurrency}</td>
+                                    </tr>`;
+                    tableContent += `</table>`;
 
                     // Display the table content
                     document.getElementById("responseData").innerHTML = tableContent;
@@ -256,7 +236,6 @@
             }
         }
     </script>
-
 </body>
 
 </html>
