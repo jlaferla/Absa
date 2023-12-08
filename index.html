@@ -211,6 +211,7 @@
                     var foreignAmount = responseData.foreignAmount;
                     var baseCurrency = responseData.exchangeRate.baseCurrency.alphaCode;
                     var baseAmount = responseData.baseAmount;
+                    var foreignCurrency = responseData.exchangeRate.foreignCurrency.alphaCode;
 
                     var tableContent = `<table>
                                             <tr>
@@ -223,11 +224,11 @@
                                             </tr>
                                             <tr>
                                                 <td>Exchange Rate</td>
-                                                <td>${exchangeRate.rate}</td>
+                                                <td>1 $(baseCurrency) = ${exchangeRate.rate} $(foreignCurrency)</td>
                                             </tr>
                                             <tr>
                                                 <td>Foreign Amount</td>
-                                                <td>${foreignAmount}</td>
+                                                <td>$(foreignCurrency) ${foreignAmount}</td>
                                             </tr>
                                         </table>`;
 
