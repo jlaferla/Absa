@@ -61,7 +61,7 @@
             padding: 10px;
             border-radius: 5px;
             width: 20%;
-            margin: 20px auto 0; /* Added more space at the top */
+            margin: 20px auto 0;
             background-color: #8013d3;
             color: #08cebe;
             font-weight: bold;
@@ -75,10 +75,10 @@
         }
 
         table {
-            width: 60%; /* Adjusted width of the table */
-            margin: 20px auto; /* Centered the table */
+            width: 60%;
+            margin: 20px auto;
             border-collapse: collapse;
-            font-family: Calibri, sans-serif; /* Set font to Calibri */
+            font-family: Calibri, sans-serif;
         }
 
         th,
@@ -86,15 +86,14 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
-            font-family: Calibri, sans-serif; /* Set font to Calibri */
+            font-family: Calibri, sans-serif;
         }
 
         th {
-            background-color: #ff0023; /* Set background color of top line to HEX #ff0023 */
-            color: white; /* Set text color to white */
+            background-color: #ff0023;
+            color: white;
         }
 
-        /* Adjusted width of the columns */
         th:first-child,
         td:first-child {
             width: 30%;
@@ -105,7 +104,6 @@
             width: 40%;
         }
 
-        /* Added style for the statement */
         #marginStatement {
             margin-top: 20px;
             padding: 10px;
@@ -113,7 +111,7 @@
             background-color: #8013d3;
             color: #08cebe;
             font-weight: bold;
-            width: 50%; /* Reduced width by 50% */
+            width: 50%;
             display: none;
             margin-left: auto;
             margin-right: auto;
@@ -160,8 +158,6 @@
         <option value="USD">USD</option>
         <option value="ZAR">ZAR</option>
     </select>
-
-    <!-- Add more fields as needed -->
 
     <br>
 
@@ -214,7 +210,7 @@
                     var exchangeRate = responseData.exchangeRate;
                     var foreignAmount = responseData.foreignAmount;
                     var baseCurrency = responseData.exchangeRate.baseCurrency.alphaCode;
-                    var baseAmount = responseData.exchangeRate.baseAmount;
+                    var baseAmount = responseData.baseAmount;
 
                     var tableContent = `<table>
                                             <tr>
